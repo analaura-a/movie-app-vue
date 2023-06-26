@@ -90,8 +90,8 @@ li {
     --color-dark: hsl(0, 0%, 13%);
     --color-primary: hsl(3, 73%, 46%);
     /* --color-primary-light: hsl(234, 83%, 79%); */
-    --color-gray: hsl(0, 0%, 35%);
-    --color-gray-hover: #4B4B4B;
+    --color-gray: hsl(0, 0%, 32%);
+    --color-gray-hover: hsl(0, 0%, 28%);
     --color-modal: hsl(0, 0%, 18%);
     --color-background-modal: hsla(0, 0%, 8%, 0.34);
 }
@@ -251,7 +251,7 @@ a {
 
 /* EXPLORAR (Título y filtros) */
 .page-title {
-    margin: 60px 0 20px 0;
+    margin: 56px 0 20px 0;
 }
 
 .filters {
@@ -326,7 +326,7 @@ a {
     width: 100%;
     max-width: 100%;
     height: auto;
-    border-radius: 12px;
+    border-radius: 8px;
     box-shadow: 0px 4px 26px 6px hsla(0, 0%, 6%, 0.26);
 }
 
