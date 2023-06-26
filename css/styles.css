@@ -51,6 +51,14 @@ h6 {
     overflow-wrap: break-word;
 }
 
+a {
+    text-decoration: none;
+}
+
+ul,
+li {
+    list-style-type: none;
+}
 
 :root {
     --satoshi-font: 'Satoshi', sans-serif;
@@ -87,6 +95,8 @@ h6 {
     --color-background-modal: hsla(0, 0%, 8%, 0.34);
 }
 
+
+
 /* ESTILOS GENERALES */
 body {
     background: var(--color-dark);
@@ -94,7 +104,34 @@ body {
     color: var(--font-color-white);
 }
 
+
 /*Tipografía*/
+.h1 {
+    font-size: var(--font-48px);
+    font-weight: var(--font-weight-bold);
+    color: var(--font-color-white);
+}
+
+.results {
+    font-size: var(--font-16px);
+    color: var(--font-color-subtle);
+    font-weight: var(--font-weight-regular);
+}
+
+.pill-text {
+    font-size: var(--font-16px);
+    font-weight: var(--font-weight-medium);
+    color: var(--font-color-white);
+}
+
+.nav-p {
+    font-size: var(--font-18px);
+    font-weight: var(--font-weight-medium);
+}
+
+a {
+    color: var(--font-color-white);
+}
 
 /*Colores (tipografía)*/
 
@@ -104,16 +141,128 @@ body {
 .container {
     width: 90%;
     max-width: 1200px;
+    margin: 0 auto;
 }
 
-/* INDEX (Home/Landing Page) */
+
+
+/* INDEX (Home) */
 /* NAVBAR */
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 20px 0 50px 0;
+}
+
+.streamberry-logo {
+    width: 130px;
+    height: auto;
+}
+
+.navbar>li:first-child {
+    display: none;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.nav-item>svg {
+    width: 32px;
+    height: 32px;
+}
+
+.nav-item>p {
+    display: none;
+}
+
+@media screen and (min-width: 600px) {
+
+    .navbar {
+        margin: 60px 0 54px 0;
+    }
+
+    .streamberry-logo {
+        width: 200px;
+    }
+
+    .navbar>li:first-child {
+        display: list-item;
+        opacity: 0;
+    }
+
+    .nav-item>p {
+        display: block;
+    }
+}
+
+/* BUSCADOR (Input) */
+#search-movie {
+    width: 100%;
+    max-width: 485px;
+    margin: 0 auto;
+}
+
+#search-movie>label {
+    position: absolute;
+    overflow: hidden;
+    text-indent: -9999px;
+}
+
+#search-movie>input {
+    width: 100%;
+    padding: 16px 56px 16px 20px;
+
+    color: var(--font-color-black);
+
+    border: none;
+    border-radius: 8px;
+
+    background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' fill='none'%3E%3Cpath fill='%23666' fill-rule='evenodd' d='M22.038 9.5C15.113 9.5 9.5 15.113 9.5 22.038c0 6.924 5.613 12.537 12.538 12.537a12.49 12.49 0 0 0 8.309-3.149l6.85 6.85a.763.763 0 0 0 1.08-1.079l-6.85-6.85a12.49 12.49 0 0 0 3.148-8.31c0-6.924-5.613-12.537-12.537-12.537ZM11.026 22.038c0-6.082 4.93-11.012 11.012-11.012 6.081 0 11.01 4.93 11.01 11.012 0 6.081-4.929 11.01-11.01 11.01-6.082 0-11.012-4.929-11.012-11.01Z' clip-rule='evenodd'/%3E%3C/svg%3E") no-repeat;
+    background-position: center right 16px;
+    background-size: 30px 30px;
+    background-color: var(--color-light);
+
+}
+
+/* EXPLORAR (Cards) */
+.filters {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    overflow-x: scroll;
+    -ms-overflow-style: none;
+    /* Internet Explorer 10+ */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.filters::-webkit-scrollbar {
+    display: none;
+    /* Safari and Chrome */
+}
+
+.pill {
+    display: inline-block;
+    background-color: var(--color-gray);
+    border-radius: 7px;
+    padding: 5px 18px 5px 18px;
+}
+
+.selected {
+    background-color: var(--color-primary);
+}
 
 
 
 
 
-/* FOOTER */
 
 /* FOOTER */
 footer {
@@ -137,7 +286,7 @@ footer {
     gap: 0.5rem;
 }
 
-.footer-credits > p{
+.footer-credits>p {
     text-align: center;
 }
 
@@ -168,7 +317,14 @@ footer {
         align-items: flex-start;
     }
 
-    .footer-credits > p{
+    .footer-credits>p {
         text-align: left;
     }
 }
+
+
+
+
+@media screen and (min-width: 600px) {}
+
+@media screen and (min-width: 1024px) {}
