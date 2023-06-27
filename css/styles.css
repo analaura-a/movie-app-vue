@@ -112,6 +112,7 @@ body {
     font-size: var(--font-48px);
     font-weight: var(--font-weight-bold);
     color: var(--font-color-white);
+    line-height: 1.1;
 }
 
 h3 {
@@ -138,6 +139,7 @@ h3 {
     font-weight: var(--font-weight-medium);
     color: var(--font-color-white);
     margin-top: 10px;
+    line-height: 1.2;
 }
 
 .nav-p {
@@ -167,10 +169,6 @@ a {
     }
 }
 
-/*Colores (tipografía)*/
-
-/*Colores*/
-
 /*Espaciado*/
 .container {
     width: 90%;
@@ -180,7 +178,7 @@ a {
 
 
 
-/* INDEX (Home) */
+/* INDEX (Página de inicio) */
 /* NAVBAR */
 .navbar {
     display: flex;
@@ -365,6 +363,7 @@ a {
     .cards-container {
         gap: 20px;
         row-gap: 40px;
+        margin: 0 0 80px 0;
     }
 
     .card {
@@ -375,6 +374,12 @@ a {
 @media screen and (min-width: 1024px) {
     .card {
         max-width: 20vw;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .card {
+        max-width: 300px;
     }
 }
 
@@ -436,12 +441,9 @@ footer {
     }
 }
 
-
-
-
 /* MODAL (Detalles de cada película) */
 .bg-modal {
-    display: grid;
+    display: none;
     place-items: center;
     position: fixed;
     z-index: 101;
@@ -540,7 +542,7 @@ footer {
     flex-direction: column;
     text-align: center;
 
-    padding: 40px 0 40px 0;
+    padding: 30px 0 40px 0;
 }
 
 .movie-info_title>h3 {
@@ -586,7 +588,7 @@ footer {
     transition: background-color ease-in-out 240ms;
 }
 
-.movie-info_trailer:hover{
+.movie-info_trailer:hover {
     background-color: var(--color-primary-hover);
 }
 
@@ -709,6 +711,35 @@ footer {
 }
 
 
+
+/* PÁGINA DE FAVORITOS*/
+/* NAVBAR */
+#navbar-favorites>.navbar>li:first-child {
+    display: list-item;
+    opacity: 1;
+}
+
+#navbar-favorites>.navbar>li:last-child{
+    display: none;
+}
+
+@media screen and (min-width: 600px) {
+    #navbar-favorites>.navbar>li:last-child{
+        display: list-item;
+        opacity: 0;
+    }
+}
+
+/* LISTADO DE PELÍCULAS */
+#content-favorites .page-title{
+    margin: 60px 0 30px 0;
+}
+
+@media screen and (min-width: 600px) {
+    #content-favorites .page-title{
+        margin: 120px 0 40px 0;
+    }
+}
 
 
 @media screen and (min-width: 600px) {}
