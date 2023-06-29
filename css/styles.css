@@ -118,6 +118,7 @@ h3 {
     font-size: var(--font-36px);
     font-weight: var(--font-weight-bold);
     color: var(--font-color-white);
+    line-height: 1.1;
 }
 
 .results {
@@ -451,8 +452,8 @@ footer {
     height: 100%;
     overflow: auto;
     background-color: var(--color-background-modal);
-    -webkit-backdrop-filter: blur(3px);
-            backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(2px);
+            backdrop-filter: blur(2px);
 }
 
 .modal {
@@ -545,7 +546,7 @@ footer {
 }
 
 .movie-info_title>h3 {
-    margin-bottom: 10px;
+    margin-bottom: 16px;
 }
 
 .movie-info_genres {
