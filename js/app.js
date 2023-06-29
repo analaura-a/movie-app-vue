@@ -1,12 +1,20 @@
 /* Componentes */
-const CardPelicula = {
+const cardpelicula = {
     props: {
-        texto: String
+        ruta: String,
+        nombre: String,
+        year: Number,
     },
-    template: `<h1> {{ texto }} </h1>`,
-    methods: {
+    template:
+        `<li class="card">
+        <img v-bind:src= "ruta"/> 
+       
+        <h2 class="movie-title">{{ nombre }}</h2>
+        <p>{{ year }}</p>
+    </li>`,
+    // methods: {
 
-    },
+    // },
 }
 
 /* Instancia de Vue */
@@ -24,11 +32,11 @@ const appMovie = new Vue({
         fetch('../json/peliculas.json')
             .then(response => response.json())
             .then(json => {
-     
+
                 json.forEach(movie => {
-                    
+
                     this.movies.push(movie);
-                    
+
                 });
 
                 console.log(this.movies);
@@ -36,15 +44,15 @@ const appMovie = new Vue({
 
     },
 
-    methods: {
+    // methods: {
 
-    },
+    // },
 
-    computed: {
+    // computed: {
 
-    },
+    // },
 
     components: {
-        CardPelicula
+        cardpelicula
     }
 });
