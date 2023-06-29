@@ -90,7 +90,6 @@ li {
     --color-dark: hsl(0, 0%, 13%);
     --color-primary: hsl(3, 73%, 46%);
     --color-primary-hover: hsl(3deg 72.49% 38.43%);
-    /* --color-primary-light: hsl(234, 83%, 79%); */
     --color-gray: hsl(0, 0%, 32%);
     --color-gray-hover: hsl(0, 0%, 28%);
     --color-modal: hsl(0, 0%, 14%);
@@ -251,7 +250,6 @@ a {
     padding: 16px 56px 16px 20px;
 
     color: var(--font-color-black);
-
     border: none;
     border-radius: 8px;
 
@@ -453,7 +451,8 @@ footer {
     height: 100%;
     overflow: auto;
     background-color: var(--color-background-modal);
-    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
 }
 
 .modal {
@@ -475,7 +474,7 @@ footer {
     height: 36px;
     background-color: rgba(173, 173, 173, 0.623);
     position: absolute;
-    z-index: 200;
+    z-index: 9999;
     border-radius: 8px;
     cursor: pointer;
     transition: background-color ease-in-out 240ms;
