@@ -99,7 +99,7 @@
         </main>
 
         <modalpelicula v-for="(item, index) in movies" v-bind:ruta="item.portada" v-bind:nombre="item.titulo"
-        v-bind:year="item.estreno" v-bind:key="index"></modalpelicula>
+        v-bind:year="item.estreno" v-bind:id="'modal-'+item.id" v-bind:key="index"></modalpelicula>
 
         <!-- <div class="bg-modal">
             <div class="modal">

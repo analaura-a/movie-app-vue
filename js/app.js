@@ -28,9 +28,10 @@ const modalpelicula = {
         year: Number,
         duracion: Number,
         director: String,
+        indice: Number,
     },
     template:
-        `<div class="bg-modal">
+        `<div class="bg-modal" id="indice">
             <div class="modal">
 
                 <section class="detalles-pelicula">
