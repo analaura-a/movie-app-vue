@@ -94,7 +94,8 @@
                     v-bind:nombre="item.titulo"
                     v-bind:year="item.estreno" 
                     v-bind:id="item.id" 
-                    v-bind:key="index"></cardpelicula>
+                    v-bind:key="index"
+                    v-on:detalle="mostrarModal(item.id)"></cardpelicula>
 
                 </ul>
 
@@ -112,6 +113,7 @@
         v-bind:duracion="item.duracion"
         v-bind:director="item.director"
         v-bind:id="'modal-'+item.id" 
+        v-bind:idback="'back-'+item.id"
         v-bind:key="index"></modalpelicula>
 
         <!-- <div class="bg-modal">

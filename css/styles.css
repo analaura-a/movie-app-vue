@@ -93,7 +93,7 @@ li {
     --color-gray: hsl(0, 0%, 32%);
     --color-gray-hover: hsl(0, 0%, 28%);
     --color-modal: hsl(0, 0%, 14%);
-    --color-background-modal: hsla(0deg 0% 8% / 0%);
+    --color-background-modal: hsl(0deg 0% 8% / 45%);
 }
 
 
@@ -452,8 +452,8 @@ footer {
     height: 100%;
     overflow: auto;
     background-color: var(--color-background-modal);
-    -webkit-backdrop-filter: blur(2px);
-            backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
 }
 
 .modal {

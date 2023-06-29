@@ -7,15 +7,11 @@ const cardpelicula = {
         indice: Number,
     },
     template:
-        `<li class="card" id="indice">
-        <img v-bind:src= "ruta"/> 
-       
-        <h2 class="movie-title">{{ nombre }}</h2>
-        <p>{{ year }}</p>
-    </li>`,
-    // methods: {
-
-    // },
+        `<li class="card" id="indice" v-on:click="$emit('detalle')">
+            <img v-bind:src= "ruta"/> 
+            <h2 class="movie-title">{{ nombre }}</h2>
+            <p>{{ year }}</p>
+        </li>`,
 }
 
 const modalpelicula = {
@@ -29,6 +25,7 @@ const modalpelicula = {
         duracion: Number,
         director: String,
         indice: Number,
+        idback: String,
     },
     template:
         `<div class="bg-modal" id="indice">
@@ -37,7 +34,7 @@ const modalpelicula = {
                 <section class="detalles-pelicula">
 
                     <div class="navbar-modal">
-                        <div></div>
+                        <div v-bind:id="idback"></div>
                         <div></div>
                     </div>
 
@@ -118,9 +115,38 @@ const appMovie = new Vue({
 
     },
 
-    // methods: {
+    methods: {
+        mostrarModal(indice){
 
-    // },
+            //Obtenemos el ID de la card clickeada
+            let id = indice;
+
+            //Seleccionamos la ventana modal con el mismo ID
+            let modal = document.getElementById(`modal-${id}`);
+
+            //También seleccionamos su botón de "volver atrás"
+            let back = document.getElementById(`back-${id}`);
+
+            //Mostramos la ventana modal
+            modal.style.display="grid";
+
+            //Le agregamos eventos para cerrarla
+            //(Haciendo click fuera de ella - Desktop)
+            window.addEventListener("click", function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            });
+
+            //(Haciendo click en el botón - Mobile)
+            window.addEventListener("click", function (event) {
+                if (event.target == back) {
+                    modal.style.display = "none";
+                }
+            });
+        }
+
+    },
 
     // computed: {
 
