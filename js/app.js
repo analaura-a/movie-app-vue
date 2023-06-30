@@ -132,9 +132,11 @@ const appMovie = new Vue({
             //Obtenemos el ID de la card clickeada
             let id = indice;
 
-            //Seleccionamos la ventana modal con el mismo ID (y su botón de "atrás")
+            //Seleccionamos la ventana modal con el mismo ID (y su botón de "atrás" y "favoritos")
             let modal = document.getElementById(`modal-${id}`);
             let back = document.getElementById(`back-${id}`);
+            let fav = document.getElementById(`fav-${id}`);
+            let favID = `fav-${id}`;
 
             //Mostramos la ventana modal
             modal.style.display = "grid";
@@ -153,6 +155,14 @@ const appMovie = new Vue({
                     modal.style.display = "none";
                 }
             });
+
+            //Dependiendo del estado de la peli, modificamos la interfaz
+            if (this.favorites.some(movie => `fav-${movie.id}` === favID)) {
+                fav.style.backgroundImage = "url('../assets/svg/heart-fill.svg')";
+            } else {
+                fav.style.backgroundImage = "url('../assets/svg/heart-outlined.svg')";
+            }
+            
         },
 
         filterMovies(index) {
@@ -170,32 +180,37 @@ const appMovie = new Vue({
         },
 
         changeFavoriteState(index) {
-            console.log(index)
 
             //Averiguamos la película seleccionada y su estado
             let id = index;
+            let clickedElement = document.getElementById(`fav-${index}`);
             let selectedMovie = this.movies.find(movie => movie.id === id);
 
             //Si ya está en favoritos...
             if (this.favorites.some(movie => movie.id === id)) {
                 console.log("Esta peli ya está en favoritos, voy a eliminarla");
 
-                // Eliminamos de favoritos
+                //Eliminamos de favoritos
                 let indice = this.favorites.findIndex(movie => movie.id === id);
-
                 this.favorites.splice(indice, 1);
-                console.log(this.favorites);
 
+                //Actualizamos la interfaz
+                clickedElement.style.backgroundImage = "url('../assets/svg/heart-outlined.svg')";
+
+                //Actualizamos localStorage
                 localStorage.setItem("favorites", JSON.stringify(this.favorites));
 
-                //Si aún no está en favoritos...
+            //Si aún no está en favoritos...
             } else {
                 console.log("Esta peli no está en favoritos, voy a agregarla");
 
                 //Agregamos a favoritos
                 this.favorites.push(selectedMovie);
-                console.log(this.favorites);
 
+                //Actualizamos la interfaz
+                clickedElement.style.backgroundImage = "url('../assets/svg/heart-fill.svg')";
+
+                //Actualizamos localStorage
                 localStorage.setItem("favorites", JSON.stringify(this.favorites));
             }
 
