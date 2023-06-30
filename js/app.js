@@ -162,7 +162,7 @@ const appMovie = new Vue({
             } else {
                 fav.style.backgroundImage = "url('../assets/svg/heart-outlined.svg')";
             }
-            
+
         },
 
         filterMovies(index) {
@@ -190,12 +190,18 @@ const appMovie = new Vue({
             if (this.favorites.some(movie => movie.id === id)) {
                 console.log("Esta peli ya está en favoritos, voy a eliminarla");
 
+                //Actualizamos la interfaz
+                clickedElement.style.backgroundImage = "url('../assets/svg/heart-outlined.svg')";
+                if (window.location.pathname == "/html/favorites.html") {
+                    this.favorites.forEach(movie => {
+                        let modal = document.getElementById(`modal-${movie.id}`);
+                        modal.style.display = "none";
+                    })
+                }
+
                 //Eliminamos de favoritos
                 let indice = this.favorites.findIndex(movie => movie.id === id);
                 this.favorites.splice(indice, 1);
-
-                //Actualizamos la interfaz
-                clickedElement.style.backgroundImage = "url('../assets/svg/heart-outlined.svg')";
 
                 //Actualizamos localStorage
                 localStorage.setItem("favorites", JSON.stringify(this.favorites));
@@ -204,11 +210,11 @@ const appMovie = new Vue({
             } else {
                 console.log("Esta peli no está en favoritos, voy a agregarla");
 
-                //Agregamos a favoritos
-                this.favorites.push(selectedMovie);
-
                 //Actualizamos la interfaz
                 clickedElement.style.backgroundImage = "url('../assets/svg/heart-fill.svg')";
+
+                //Agregamos a favoritos
+                this.favorites.push(selectedMovie);
 
                 //Actualizamos localStorage
                 localStorage.setItem("favorites", JSON.stringify(this.favorites));
