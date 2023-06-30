@@ -63,14 +63,14 @@
         <main class="container">
             <form action="#" id="search-movie">
                 <label for="buscar">Buscar películas</label>
-                <input type="search" id="buscar" name="buscar" placeholder="Buscar..." v-model="searchInput">
+                <input type="search" id="buscar" name="buscar" placeholder="Buscar..." v-model="searchInput" v-on:input="showResultsHints">
             </form>
 
             <section class="explorar">
 
                 <div class="page-title">
-                    <p class="results hidden">4 resultados para...</p>
-                    <h1 class="h1">Explorar</h1>
+                    <p class="results hidden" id="search-helper">{{searchMoviesCount}} resultados para...</p>
+                    <h1 class="h1" id="titulo-cambiante">Explorar</h1>
                 </div>
 
                 <ul class="filters">

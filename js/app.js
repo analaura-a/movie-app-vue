@@ -220,7 +220,24 @@ const appMovie = new Vue({
                 localStorage.setItem("favorites", JSON.stringify(this.favorites));
             }
 
+        },
+        showResultsHints(){
+            let helper = document.getElementById("search-helper");
+            let titulo = document.getElementById("titulo-cambiante");
 
+            //Si el usuario ingresó contenido al input...
+            if(this.searchInput != ''){
+
+                helper.classList.remove("hidden");
+                titulo.textContent = `${this.searchInput}`;
+
+            //Si el input está vacío...
+            } else {
+
+                helper.classList.add("hidden");
+                titulo.textContent = "Explorar";
+
+            }
         }
 
     },
@@ -228,6 +245,10 @@ const appMovie = new Vue({
     computed: {
         searchMovies() {
             return this.movies.filter(movie => movie.titulo.toLowerCase().includes(this.searchInput.toLowerCase()));
+        },
+        searchMoviesCount() {
+            let array = this.movies.filter(movie => movie.titulo.toLowerCase().includes(this.searchInput.toLowerCase()));
+            return array.length;
         }
 
     },
@@ -236,6 +257,3 @@ const appMovie = new Vue({
         cardpelicula, modalpelicula
     }
 });
-
-
-//localStorage.setItem("precios", JSON.stringify(saveLocal))
