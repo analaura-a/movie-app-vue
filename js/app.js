@@ -146,15 +146,34 @@ const appMovie = new Vue({
             });
         },
 
-        filtrar(index) {
-            console.log('filtrando', index);
+        filterMovies(index) {
+            console.log('filtrando:', index);
+
+            // let categoria = index;
+
+            // this.movies.forEach(movie => {
+
+            //     movie.genero.forEach(genero => function () {
+
+            //         if(genero.toLowerCase() == categoria.toLowerCase()){
+            //             this.movies.filter(pelicula => pelicula.genero.includes(categoria));
+            //         }
+            //         // if (genero == categoria) {
+
+            //         // } else {
+
+            //     })
+            // })
+
+            // console.log(this.movies);
+
         }
 
     },
 
     computed: {
         searchMovies() {
-            return this.movies.filter(movie => movie.titulo.includes(this.searchInput));
+            return this.movies.filter(movie => movie.titulo.toLowerCase().includes(this.searchInput.toLowerCase()));
         }
 
     },

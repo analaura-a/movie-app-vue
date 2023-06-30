@@ -142,6 +142,18 @@ h3 {
     line-height: 1.2;
 }
 
+.search-empty-state{
+    font-size: var(--font-24px);
+    font-weight: var(--font-weight-medium);
+    color: var(--font-color-white);
+    text-align: center;
+    line-height: 1.2;
+
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 140px 0;
+}
+
 .nav-p {
     font-size: var(--font-18px);
     font-weight: var(--font-weight-medium);
@@ -166,6 +178,11 @@ a {
 
     .movie-title {
         font-size: var(--font-22px);
+    }
+
+    .search-empty-state{
+        font-size: var(--font-32px);
+        max-width: 480px;
     }
 }
 

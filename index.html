@@ -79,11 +79,11 @@
                     v-bind:nombre="item" 
                     v-bind:id="item" 
                     v-bind:key="index"
-                    v-on:click="filtrar(item)">{{item}}</li>
+                    v-on:click="filterMovies(item)">{{item}}</li>
 
                 </ul>
 
-                <ul class="cards-container">
+                <ul class="cards-container" v-if="searchMovies.length > 0">
 
                     <cardpelicula v-for="(item, index) in searchMovies" 
                     v-bind:ruta="item.portada" 
@@ -94,6 +94,7 @@
                     v-on:detalle="mostrarModal(item.id)"></cardpelicula>
 
                 </ul>
+                <h2 class="search-empty-state" v-else>¡Ups! Parece que no existen resultados para esa búsqueda.</h2>
 
             </section>
 
