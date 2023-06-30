@@ -36,7 +36,7 @@ const modalpelicula = {
 
                     <div class="navbar-modal">
                         <div v-bind:id="idback"></div>
-                        <div v-bind:id="idfav"></div>
+                        <div v-bind:id="idfav" v-on:click="$emit('favorite')"></div>
                     </div>
 
                     <div class="movie-poster">
@@ -95,20 +95,7 @@ const appMovie = new Vue({
 
     data: {
         movies: [],
-        favorites: [{
-            "id": 16,
-            "titulo": "La Ciudad Perdida",
-            "portada": "assets/movies/ciudad-perdida.jpg",
-            "descripcion": "Un modelo de portada viaja a una jungla exótica para rescatar a una escritora de aventuras de un excéntrico multimillonario.",
-            "estreno": 2022,
-            "director": "Aaron Nee, Adam Nee",
-            "duracion": 112,
-            "trailer": "https://www.youtube.com/watch?v=2kzxPG4cz2g",
-            "genero": [
-                "Acción",
-                "Aventura"
-            ]
-        }],
+        favorites: [],
         categorias: ["Todas", "Acción", "Aventura", "Comedia", "Drama", "Ficción", "Terror", "Suspenso", "Fantasía", "Romance", "Juvenil"],
         searchInput: "",
     },
@@ -117,6 +104,7 @@ const appMovie = new Vue({
 
         console.log('Inicio de la instancia de Vue');
 
+        //Agregamos al array movies las películas del JSON
         fetch('../json/peliculas.json')
             .then(response => response.json())
             .then(json => {
@@ -129,6 +117,12 @@ const appMovie = new Vue({
 
                 console.log(this.movies);
             })
+
+        //Agregamos al array favorites las películas agregadas a favoritos
+        let array = JSON.parse(localStorage.getItem('favorites'));
+        array.forEach(movie => {
+            this.favorites.push(movie);
+        })
 
     },
 
@@ -173,6 +167,39 @@ const appMovie = new Vue({
 
             console.log(filtering);
             return filtering;
+        },
+
+        changeFavoriteState(index) {
+            console.log(index)
+
+            //Averiguamos la película seleccionada y su estado
+            let id = index;
+            let selectedMovie = this.movies.find(movie => movie.id === id);
+
+            //Si ya está en favoritos...
+            if (this.favorites.some(movie => movie.id === id)) {
+                console.log("Esta peli ya está en favoritos, voy a eliminarla");
+
+                // Eliminamos de favoritos
+                let indice = this.favorites.findIndex(movie => movie.id === id);
+
+                this.favorites.splice(indice, 1);
+                console.log(this.favorites);
+
+                localStorage.setItem("favorites", JSON.stringify(this.favorites));
+
+                //Si aún no está en favoritos...
+            } else {
+                console.log("Esta peli no está en favoritos, voy a agregarla");
+
+                //Agregamos a favoritos
+                this.favorites.push(selectedMovie);
+                console.log(this.favorites);
+
+                localStorage.setItem("favorites", JSON.stringify(this.favorites));
+            }
+
+
         }
 
     },
@@ -188,3 +215,6 @@ const appMovie = new Vue({
         cardpelicula, modalpelicula
     }
 });
+
+
+//localStorage.setItem("precios", JSON.stringify(saveLocal))

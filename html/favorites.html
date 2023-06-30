@@ -96,7 +96,8 @@
         v-bind:id="'modal-'+item.id" 
         v-bind:idback="'back-'+item.id"
         v-bind:idfav="'fav-'+item.id"
-        v-bind:key="index"></modalpelicula>
+        v-bind:key="index"
+        v-on:favorite="changeFavoriteState(item.id)"></modalpelicula>
 
     </main>
 

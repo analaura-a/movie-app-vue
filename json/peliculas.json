@@ -8,6 +8,7 @@
         "director": "Lee Cronin",
         "duracion": 95,
         "trailer": "https://www.youtube.com/watch?v=keW_fKq187k",
+        "favorite": false,
         "genero": [
             "Terror",
             "Fantasía"
@@ -22,6 +23,7 @@
         "director": "Domingo González",
         "duracion": 130,
         "trailer": "https://www.youtube.com/watch?v=sg4HGMIN9J4",
+        "favorite": false,
         "genero": [
             "Romance",
             "Juvenil"
@@ -36,6 +38,7 @@
         "director": "Martino Zaidelis",
         "duracion": 105,
         "trailer": "https://www.youtube.com/watch?v=BrbYaKEYBe8",
+        "favorite": false,
         "genero": [
             "Misterio"
         ]
@@ -49,6 +52,7 @@
         "director": "Marc Forster",
         "duracion": 126,
         "trailer": "https://www.youtube.com/watch?v=Zjx0QUetIS8",
+        "favorite": false,
         "genero": [
             "Comedia",
             "Drama"
@@ -63,6 +67,7 @@
         "director": "Roger Kumble",
         "duracion": 105,
         "trailer": "https://www.youtube.com/watch?v=UqEPdjetemk",
+        "favorite": false,
         "genero": [
             "Romance",
             "Juvenil"
@@ -77,6 +82,7 @@
         "director": "Sam Hargrave",
         "duracion": 122,
         "trailer": "https://www.youtube.com/watch?v=3j_SErnxepk",
+        "favorite": false,
         "genero": [
             "Acción",
             "Suspenso"
@@ -91,6 +97,7 @@
         "director": "Christopher McQuarrie",
         "duracion": 131,
         "trailer": "https://www.youtube.com/watch?v=SxGt-oePGSw",
+        "favorite": false,
         "genero": [
             "Acción",
             "Aventura"
@@ -105,6 +112,7 @@
         "director": "Jon M. Chu",
         "duracion": 120,
         "trailer": "https://www.youtube.com/watch?v=55mMLQsUnp4",
+        "favorite": false,
         "genero": [
             "Acción",
             "Aventura"
@@ -119,6 +127,7 @@
         "director": "Jean-François Richet",
         "duracion": 107,
         "trailer": "https://www.youtube.com/watch?v=C5JiLhxXMg0",
+        "favorite": false,
         "genero": [
             "Acción",
             "Aventura"
@@ -133,6 +142,7 @@
         "director": "Ruben Fleischer",
         "duracion": 116,
         "trailer": "https://www.youtube.com/watch?v=QHT-vrD7tds",
+        "favorite": false,
         "genero": [
             "Acción",
             "Aventura"
@@ -147,6 +157,7 @@
         "director": " Edgar Wright",
         "duracion": 116,
         "trailer": "https://www.youtube.com/watch?v=-tDIYpWmzFc",
+        "favorite": false,
         "genero": [
             "Terror",
             "Drama"
@@ -161,6 +172,7 @@
         "director": "Robert Eggers",
         "duracion": 90,
         "trailer": "https://www.youtube.com/watch?v=JEPQVDIFpsw",
+        "favorite": false,
         "genero": [
             "Terror",
             "Drama"
@@ -175,6 +187,7 @@
         "director": "Gerard Johnstone",
         "duracion": 102,
         "trailer": "https://www.youtube.com/watch?v=e_6JPqOCH3c",
+        "favorite": false,
         "genero": [
             "Terror",
             "Ficción"
@@ -189,6 +202,7 @@
         "director": "Joel Crawford",
         "duracion": 100,
         "trailer": "https://www.youtube.com/watch?v=QaiUm8jNiCk",
+        "favorite": false,
         "genero": [
             "Comedia",
             "Aventura"
@@ -203,6 +217,7 @@
         "director": "Kelly Fremon",
         "duracion": 102,
         "trailer": "https://www.youtube.com/watch?v=TAXCaL5n6q8",
+        "favorite": false,
         "genero": [
             "Comedia",
             "Drama"
@@ -217,6 +232,7 @@
         "director": "Aaron Nee, Adam Nee",
         "duracion": 112,
         "trailer": "https://www.youtube.com/watch?v=2kzxPG4cz2g",
+        "favorite": false,
         "genero": [
             "Acción",
             "Aventura"
@@ -231,6 +247,7 @@
         "director": "Peter Segal",
         "duracion": 99,
         "trailer": "https://www.youtube.com/watch?v=T-Ij457ykKE",
+        "favorite": false,
         "genero": [
             "Romance",
             "Comedia"
@@ -245,6 +262,7 @@
         "director": "Todd Strauss-Schulson",
         "duracion": 88,
         "trailer": "https://www.youtube.com/watch?v=cD-XeEqKz00",
+        "favorite": false,
         "genero": [
             "Romance",
             "Comedia"
@@ -259,6 +277,7 @@
         "director": "Cameron Crowe",
         "duracion": 105,
         "trailer": "https://www.youtube.com/watch?v=gc0s6yFBKus",
+        "favorite": false,
         "genero": [
             "Romance",
             "Comedia"
@@ -273,6 +292,7 @@
         "director": "Max Barbakow",
         "duracion": 87,
         "trailer": "https://www.youtube.com/watch?v=aQ7Np-dl9hU",
+        "favorite": false,
         "genero": [
             "Romance",
             "Comedia"
