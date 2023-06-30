@@ -95,6 +95,7 @@ const appMovie = new Vue({
     data: {
         movies: [],
         categorias: ["Todas", "Acción", "Aventura", "Comedia", "Drama", "Ficción", "Terror", "Suspenso", "Fantasía", "Romance", "Juvenil"],
+        searchInput: "",
     },
 
     created() {
@@ -151,9 +152,12 @@ const appMovie = new Vue({
 
     },
 
-    // computed: {
-    //
-    // },
+    computed: {
+        searchMovies() {
+            return this.movies.filter(movie => movie.titulo.includes(this.searchInput));
+        }
+
+    },
 
     components: {
         cardpelicula, modalpelicula

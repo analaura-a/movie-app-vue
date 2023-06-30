@@ -63,7 +63,7 @@
         <main class="container">
             <form action="#" id="search-movie">
                 <label for="buscar">Buscar películas</label>
-                <input type="text" id="buscar" name="buscar" placeholder="Buscar...">
+                <input type="search" id="buscar" name="buscar" placeholder="Buscar..." v-model="searchInput">
             </form>
 
             <section class="explorar">
@@ -85,7 +85,7 @@
 
                 <ul class="cards-container">
 
-                    <cardpelicula v-for="(item, index) in movies" 
+                    <cardpelicula v-for="(item, index) in searchMovies" 
                     v-bind:ruta="item.portada" 
                     v-bind:nombre="item.titulo"
                     v-bind:year="item.estreno" 
