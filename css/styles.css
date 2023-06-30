@@ -752,9 +752,50 @@ footer {
     margin: 60px 0 30px 0;
 }
 
+.favorites-empty-state{
+    text-align: center;
+    margin: 0 auto;
+    padding: 140px 0;
+
+}
+
+.favorites-empty-state > div{
+    background-color: rgba(173, 173, 173, 0.623);
+    background-image: url("../assets/svg/heart-outlined.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 44px;
+    border-radius: 8px;
+
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 1.875rem auto;
+}
+
+.favorites-empty-state > h2{
+    padding: 0;
+    line-height: 1.1;
+}
+
+.favorites-empty-state > p{
+    font-size: var(--font-16px);
+    font-weight: var(--font-weight-regular);
+    color: var(--font-color-subtle);
+    line-height: 1.2;
+  
+    max-width: 30rem;
+    margin: 0.625rem auto 0 auto;
+
+}
+
+
 @media screen and (min-width: 600px) {
     #content-favorites .page-title{
         margin: 120px 0 40px 0;
+    }
+
+    .favorites-empty-state > p{
+        font-size: var(--font-20px);
     }
 }
 

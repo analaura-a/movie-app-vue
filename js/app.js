@@ -26,6 +26,7 @@ const modalpelicula = {
         director: String,
         indice: Number,
         idback: String,
+        idfav: String,
     },
     template:
         `<div class="bg-modal" id="indice">
@@ -35,7 +36,7 @@ const modalpelicula = {
 
                     <div class="navbar-modal">
                         <div v-bind:id="idback"></div>
-                        <div></div>
+                        <div v-bind:id="idfav"></div>
                     </div>
 
                     <div class="movie-poster">
@@ -94,7 +95,20 @@ const appMovie = new Vue({
 
     data: {
         movies: [],
-        favorites: [],
+        favorites: [{
+            "id": 16,
+            "titulo": "La Ciudad Perdida",
+            "portada": "assets/movies/ciudad-perdida.jpg",
+            "descripcion": "Un modelo de portada viaja a una jungla exótica para rescatar a una escritora de aventuras de un excéntrico multimillonario.",
+            "estreno": 2022,
+            "director": "Aaron Nee, Adam Nee",
+            "duracion": 112,
+            "trailer": "https://www.youtube.com/watch?v=2kzxPG4cz2g",
+            "genero": [
+                "Acción",
+                "Aventura"
+            ]
+        }],
         categorias: ["Todas", "Acción", "Aventura", "Comedia", "Drama", "Ficción", "Terror", "Suspenso", "Fantasía", "Romance", "Juvenil"],
         searchInput: "",
     },
