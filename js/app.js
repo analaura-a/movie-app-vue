@@ -120,9 +120,11 @@ const appMovie = new Vue({
 
         //Agregamos al array favorites las películas agregadas a favoritos
         let array = JSON.parse(localStorage.getItem('favorites'));
-        array.forEach(movie => {
-            this.favorites.push(movie);
-        })
+        if(array){
+            array.forEach(movie => {
+                this.favorites.push(movie);
+            })
+        }
 
     },
 
