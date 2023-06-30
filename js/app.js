@@ -94,6 +94,7 @@ const appMovie = new Vue({
 
     data: {
         movies: [],
+        favorites: [],
         categorias: ["Todas", "Acción", "Aventura", "Comedia", "Drama", "Ficción", "Terror", "Suspenso", "Fantasía", "Romance", "Juvenil"],
         searchInput: "",
     },
@@ -147,26 +148,17 @@ const appMovie = new Vue({
         },
 
         filterMovies(index) {
-            console.log('filtrando:', index);
 
-            // let categoria = index;
+            console.log('Filtrando:', index);
 
-            // this.movies.forEach(movie => {
+            let categoria = index;
 
-            //     movie.genero.forEach(genero => function () {
+            let filtering = this.movies.filter(function (movie) {
+                return movie.genero.indexOf(categoria) >= 0
+            });
 
-            //         if(genero.toLowerCase() == categoria.toLowerCase()){
-            //             this.movies.filter(pelicula => pelicula.genero.includes(categoria));
-            //         }
-            //         // if (genero == categoria) {
-
-            //         // } else {
-
-            //     })
-            // })
-
-            // console.log(this.movies);
-
+            console.log(filtering);
+            return filtering;
         }
 
     },
