@@ -105,7 +105,7 @@ const appMovie = new Vue({
         console.log('Inicio de la instancia de Vue');
 
         //Agregamos al array movies las películas del JSON
-        fetch('../json/peliculas.json')
+        fetch('json/peliculas.json')
             .then(response => response.json())
             .then(json => {
 
