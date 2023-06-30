@@ -69,7 +69,7 @@ const modalpelicula = {
 
                             <div>
                                 <dt>Duración</dt>
-                                <dd>{{duracion}}</dd>
+                                <dd>{{duracion}}min</dd>
                             </div>
 
                             <div>
@@ -94,6 +94,7 @@ const appMovie = new Vue({
 
     data: {
         movies: [],
+        categorias: ["Todas", "Acción", "Aventura", "Comedia", "Drama", "Ficción", "Terror", "Suspenso", "Fantasía", "Romance", "Juvenil"],
     },
 
     created() {
@@ -116,21 +117,19 @@ const appMovie = new Vue({
     },
 
     methods: {
-        mostrarModal(indice){
+        mostrarModal(indice) {
 
             //Obtenemos el ID de la card clickeada
             let id = indice;
 
-            //Seleccionamos la ventana modal con el mismo ID
+            //Seleccionamos la ventana modal con el mismo ID (y su botón de "atrás")
             let modal = document.getElementById(`modal-${id}`);
-
-            //También seleccionamos su botón de "volver atrás"
             let back = document.getElementById(`back-${id}`);
 
             //Mostramos la ventana modal
-            modal.style.display="grid";
+            modal.style.display = "grid";
 
-            //Le agregamos eventos para cerrarla
+            //Agregamos eventos para cerrarla
             //(Haciendo click fuera de ella - Desktop)
             window.addEventListener("click", function (event) {
                 if (event.target == modal) {
@@ -144,12 +143,16 @@ const appMovie = new Vue({
                     modal.style.display = "none";
                 }
             });
+        },
+
+        filtrar(index) {
+            console.log('filtrando', index);
         }
 
     },
 
     // computed: {
-
+    //
     // },
 
     components: {

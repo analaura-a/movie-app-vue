@@ -74,17 +74,13 @@
                 </div>
 
                 <ul class="filters">
-                    <li class="pill pill-text selected">Todas</li>
-                    <li class="pill pill-text">Acción</li>
-                    <li class="pill pill-text">Aventura</li>
-                    <li class="pill pill-text">Comedia</li>
-                    <li class="pill pill-text">Drama</li>
-                    <li class="pill pill-text">Ficción</li>
-                    <li class="pill pill-text">Terror</li>
-                    <li class="pill pill-text">Suspenso</li>
-                    <li class="pill pill-text">Fantasía</li>
-                    <li class="pill pill-text">Romance</li>
-                    <li class="pill pill-text">Juvenil</li>
+
+                    <li class="pill pill-text" v-for="(item, index) in categorias" 
+                    v-bind:nombre="item" 
+                    v-bind:id="item" 
+                    v-bind:key="index"
+                    v-on:click="filtrar(item)">{{item}}</li>
+
                 </ul>
 
                 <ul class="cards-container">
