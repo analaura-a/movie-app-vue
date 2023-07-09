@@ -163,9 +163,9 @@ const appMovie = new Vue({
             if (window.location.pathname == "/movie-app-vue/html/favorites.html") {
                 console.log("estoy en favoritos")
                 if (this.favorites.some(movie => `fav-${movie.id}` === favID)) {
-                    fav.style.backgroundImage = "url('movie-app-vue/assets/svg/heart-fill.svg')";
+                    fav.style.backgroundImage = "url('../assets/svg/heart-fill.svg')";
                 } else {
-                    fav.style.backgroundImage = "url('movie-app-vue/assets/svg/heart-outlined.svg')";
+                    fav.style.backgroundImage = "url('../assets/svg/heart-outlined.svg')";
                 }
             } else {
                 if (this.favorites.some(movie => `fav-${movie.id}` === favID)) {
@@ -208,7 +208,7 @@ const appMovie = new Vue({
                 //Actualizamos la interfaz
 
                 if (window.location.pathname == "/movie-app-vue/html/favorites.html") {
-                    clickedElement.style.backgroundImage = "url('movie-app-vue/assets/svg/heart-outlined.svg')";
+                    clickedElement.style.backgroundImage = "url('../assets/svg/heart-outlined.svg')";
 
                     this.favorites.forEach(movie => {
                         let modal = document.getElementById(`modal-${movie.id}`);
@@ -231,7 +231,7 @@ const appMovie = new Vue({
 
                 //Actualizamos la interfaz
                 if (window.location.pathname == "/movie-app-vue/html/favorites.html") {
-                    clickedElement.style.backgroundImage = "url('movie-app-vue/assets/svg/heart-fill.svg')";
+                    clickedElement.style.backgroundImage = "url('../assets/svg/heart-fill.svg')";
                 } else {
                     clickedElement.style.backgroundImage = "url('assets/svg/heart-fill.svg')";
                 }
