@@ -160,7 +160,7 @@ const appMovie = new Vue({
             });
 
             //Dependiendo del estado de la peli, modificamos la interfaz
-            if (window.location.pathname == "/html/favorites.html") {
+            if (window.location.pathname == "/movie-app-vue/html/favorites.html") {
                 console.log("estoy en favoritos")
                 if (this.favorites.some(movie => `fav-${movie.id}` === favID)) {
                     fav.style.backgroundImage = "url('movie-app-vue/assets/svg/heart-fill.svg')";
@@ -207,7 +207,7 @@ const appMovie = new Vue({
 
                 //Actualizamos la interfaz
 
-                if (window.location.pathname == "/html/favorites.html") {
+                if (window.location.pathname == "/movie-app-vue/html/favorites.html") {
                     clickedElement.style.backgroundImage = "url('movie-app-vue/assets/svg/heart-outlined.svg')";
 
                     this.favorites.forEach(movie => {
@@ -230,7 +230,7 @@ const appMovie = new Vue({
                 console.log("Esta peli no está en favoritos, voy a agregarla");
 
                 //Actualizamos la interfaz
-                if (window.location.pathname == "/html/favorites.html") {
+                if (window.location.pathname == "/movie-app-vue/html/favorites.html") {
                     clickedElement.style.backgroundImage = "url('movie-app-vue/assets/svg/heart-fill.svg')";
                 } else {
                     clickedElement.style.backgroundImage = "url('assets/svg/heart-fill.svg')";
