@@ -160,10 +160,18 @@ const appMovie = new Vue({
             });
 
             //Dependiendo del estado de la peli, modificamos la interfaz
-            if (this.favorites.some(movie => `fav-${movie.id}` === favID)) {
-                fav.style.backgroundImage = "url('assets/svg/heart-fill.svg')";
+            if (window.location.pathname == "/html/favorites.html") {
+                if (this.favorites.some(movie => `fav-${movie.id}` === favID)) {
+                    fav.style.backgroundImage = "url('../assets/svg/heart-fill.svg')";
+                } else {
+                    fav.style.backgroundImage = "url('../assets/svg/heart-outlined.svg')";
+                }
             } else {
-                fav.style.backgroundImage = "url('assets/svg/heart-outlined.svg')";
+                if (this.favorites.some(movie => `fav-${movie.id}` === favID)) {
+                    fav.style.backgroundImage = "url('assets/svg/heart-fill.svg')";
+                } else {
+                    fav.style.backgroundImage = "url('assets/svg/heart-outlined.svg')";
+                }
             }
 
         },
@@ -197,12 +205,16 @@ const appMovie = new Vue({
                 console.log("Esta peli ya está en favoritos, voy a eliminarla");
 
                 //Actualizamos la interfaz
-                clickedElement.style.backgroundImage = "url('assets/svg/heart-outlined.svg')";
+
                 if (window.location.pathname == "/html/favorites.html") {
+                    clickedElement.style.backgroundImage = "url('../assets/svg/heart-outlined.svg')";
+
                     this.favorites.forEach(movie => {
                         let modal = document.getElementById(`modal-${movie.id}`);
                         modal.style.display = "none";
                     })
+                } else {
+                    clickedElement.style.backgroundImage = "url('assets/svg/heart-outlined.svg')";
                 }
 
                 //Eliminamos de favoritos
@@ -217,7 +229,12 @@ const appMovie = new Vue({
                 console.log("Esta peli no está en favoritos, voy a agregarla");
 
                 //Actualizamos la interfaz
-                clickedElement.style.backgroundImage = "url('assets/svg/heart-fill.svg')";
+                if (window.location.pathname == "/html/favorites.html") {
+                    clickedElement.style.backgroundImage = "url('../assets/svg/heart-fill.svg')";
+                } else {
+                    clickedElement.style.backgroundImage = "url('assets/svg/heart-fill.svg')";
+                }
+
 
                 //Agregamos a favoritos
                 this.favorites.push(selectedMovie);
