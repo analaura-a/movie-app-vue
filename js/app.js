@@ -98,6 +98,7 @@ const appMovie = new Vue({
         favorites: [],
         categorias: ["Todas", "Acción", "Aventura", "Comedia", "Drama", "Ficción", "Terror", "Suspenso", "Fantasía", "Romance", "Juvenil"],
         searchInput: "",
+        generoSeleccionado: ""
     },
 
     created() {
@@ -120,7 +121,7 @@ const appMovie = new Vue({
 
         //Agregamos al array favorites las películas agregadas a favoritos
         let array = JSON.parse(localStorage.getItem('favorites'));
-        if(array){
+        if (array) {
             array.forEach(movie => {
                 this.favorites.push(movie);
             })
@@ -160,25 +161,28 @@ const appMovie = new Vue({
 
             //Dependiendo del estado de la peli, modificamos la interfaz
             if (this.favorites.some(movie => `fav-${movie.id}` === favID)) {
-                fav.style.backgroundImage = "url('../assets/svg/heart-fill.svg')";
+                fav.style.backgroundImage = "url('assets/svg/heart-fill.svg')";
             } else {
-                fav.style.backgroundImage = "url('../assets/svg/heart-outlined.svg')";
+                fav.style.backgroundImage = "url('assets/svg/heart-outlined.svg')";
             }
 
         },
 
         filterMovies(index) {
 
+            //Guardamos la categoría seleccionada
             console.log('Filtrando:', index);
+            this.generoSeleccionado = index;
 
-            let categoria = index;
+            //Actualizamos la interfaz
+            let categorias = document.querySelectorAll('.filter');
+            let categoriaSeleccionada = document.getElementById(`${index}`);
 
-            let filtering = this.movies.filter(function (movie) {
-                return movie.genero.indexOf(categoria) >= 0
-            });
+            categorias.forEach(categoria => {
+                categoria.classList.remove("selected");
+            })
+            categoriaSeleccionada.classList.add("selected");
 
-            console.log(filtering);
-            return filtering;
         },
 
         changeFavoriteState(index) {
@@ -193,7 +197,7 @@ const appMovie = new Vue({
                 console.log("Esta peli ya está en favoritos, voy a eliminarla");
 
                 //Actualizamos la interfaz
-                clickedElement.style.backgroundImage = "url('../assets/svg/heart-outlined.svg')";
+                clickedElement.style.backgroundImage = "url('assets/svg/heart-outlined.svg')";
                 if (window.location.pathname == "/html/favorites.html") {
                     this.favorites.forEach(movie => {
                         let modal = document.getElementById(`modal-${movie.id}`);
@@ -213,7 +217,7 @@ const appMovie = new Vue({
                 console.log("Esta peli no está en favoritos, voy a agregarla");
 
                 //Actualizamos la interfaz
-                clickedElement.style.backgroundImage = "url('../assets/svg/heart-fill.svg')";
+                clickedElement.style.backgroundImage = "url('assets/svg/heart-fill.svg')";
 
                 //Agregamos a favoritos
                 this.favorites.push(selectedMovie);
@@ -223,12 +227,13 @@ const appMovie = new Vue({
             }
 
         },
-        showResultsHints(){
+
+        showResultsHints() {
             let helper = document.getElementById("search-helper");
             let titulo = document.getElementById("titulo-cambiante");
 
             //Si el usuario ingresó contenido al input...
-            if(this.searchInput != ''){
+            if (this.searchInput != '') {
 
                 helper.classList.remove("hidden");
                 titulo.textContent = `${this.searchInput}`;
@@ -246,11 +251,27 @@ const appMovie = new Vue({
 
     computed: {
         searchMovies() {
+
+            //Si el usuario seleccionó una categoría...
+            if (this.generoSeleccionado != '') {
+
+                let categoria = this.generoSeleccionado;
+
+                if (this.generoSeleccionado == 'Todas') {
+                    return this.movies.filter(movie => movie.titulo.toLowerCase().includes(this.searchInput.toLowerCase()));
+                } else {
+                    return this.movies.filter(movie => movie.titulo.toLowerCase().includes(this.searchInput.toLowerCase()) && movie.genero.indexOf(categoria) >= 0);
+                }
+
+            }
+
+            //Si el usuario no seleccionó una categoría...
             return this.movies.filter(movie => movie.titulo.toLowerCase().includes(this.searchInput.toLowerCase()));
+
         },
+
         searchMoviesCount() {
-            let array = this.movies.filter(movie => movie.titulo.toLowerCase().includes(this.searchInput.toLowerCase()));
-            return array.length;
+            return this.searchMovies.length;
         }
 
     },
