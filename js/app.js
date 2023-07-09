@@ -162,9 +162,9 @@ const appMovie = new Vue({
             //Dependiendo del estado de la peli, modificamos la interfaz
             if (window.location.pathname == "/html/favorites.html") {
                 if (this.favorites.some(movie => `fav-${movie.id}` === favID)) {
-                    fav.style.backgroundImage = "url('../assets/svg/heart-fill.svg')";
+                    fav.style.backgroundImage = "url('movie-app-vue/assets/svg/heart-fill.svg')";
                 } else {
-                    fav.style.backgroundImage = "url('../assets/svg/heart-outlined.svg')";
+                    fav.style.backgroundImage = "url('movie-app-vue/assets/svg/heart-outlined.svg')";
                 }
             } else {
                 if (this.favorites.some(movie => `fav-${movie.id}` === favID)) {
